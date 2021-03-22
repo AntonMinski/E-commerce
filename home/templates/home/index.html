@@ -1,0 +1,9 @@
+{% extends 'home/homebase.html' %}
+ {% load static %}
+{% block title %} My home page {% endblock %}
+{% block description %} My home page description {% endblock %}
+{% block keywords %} My home page keywords {% endblock %}
+
+{% block sidebar %} {% include 'home/sidebar.html' %} {% endblock %}
+{% block slider %} {% include 'home/slider.html' %} {% endblock %}
+{% block body %} {% include 'home/content.html' %}  {% endblock %}
