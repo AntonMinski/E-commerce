@@ -26,4 +26,4 @@ if __name__ == '__main__':
 # cd C:\Django\e-commerce\mysite
 # python manage.py runserver
 # python manage.py makemigrations
-# python maange.py migrate
+# python manage.py migrate
