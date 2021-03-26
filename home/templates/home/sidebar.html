@@ -15,33 +15,30 @@
 
                     <span class="category-header">Categories <i class="fa fa-list"></i></span>
 
+                   {% load mptt_tags %}
+            <ul class="category-list">
+                {% recursetree category %}
+                    <li class="dropdown side-dropdown">
+                        <a href="{% url 'category_products' node.id node.slug %}" class="dropdown-toggle" {% if not node.is_leaf_node %} data-toggle="dropdown" aria-expanded="true" {% endif %}>{{ node.title }} <i class="fa fa-angle-right"></i></a>
+                        <div class="custom-menu">
+                            <div class="row">
+                                <div class="col-md-4">
 
-                    <ul class="category-list">
-                        {% recursetree category %}
-                        <li class="dropdown side-dropdown">
-                            <a href="/category/{{ node.id }}/{{ node.title }}" class="dropdown-toggle"
-							   {% if not node.is_leaf_node %} data-toggle="dropdown" aria-expanded="true" {% endif %}>{{ node.title }}
-                                <i class="fa fa-angle-right"></i></a>
-                            <div class="custom-menu">
-                                <div class="row">
-                                    <div class="col-md-4">
-
-                                        {% if not node.is_leaf_node %}
+                                    {% if not node.is_leaf_node %}
                                         <ul class="list-links">
-                                            <li><h3 class="list-links-title">Sub Categories</h3></li>
                                             <hr>
                                             <li><a href="#">{{ children }}</a></li>
                                         </ul>
-                                        {% endif %}
+                                    {% endif %}
 
-                                        <hr class="hidden-md hidden-lg">
-                                    </div>
+                                    <hr class="hidden-md hidden-lg">
                                 </div>
                             </div>
-                        </li>
-                        {% endrecursetree %}
-                    </ul>
+                        </div>
+                    </li>
+                {% endrecursetree %}
 
+                    </ul>
                 </div>
             </div>
             <!-- /category nav -->
